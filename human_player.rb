@@ -22,33 +22,38 @@ class HumanPlayer
         display.render
 
         if !start_pos
-          puts "#{@name} make your move. Select a piece."
+          puts "#{@name.colorize(@color)} make your move. Select a piece."
           start_pos = display.cursor.get_input
         else
-          puts "#{@name} make your move. Select a destination."
+          puts "#{@name.colorize(@color)} make your move. Select a destination."
           end_pos = display.cursor.get_input
         end
 
       end
 
       display.render
-      if @board.valid_move?(start_pos, end_pos)
-        @board.move_piece(color, start_pos, end_pos)
+      if end_pos == start_pos
+        raise "stop"
       else
-        raise "You're still in check"
+        if @board.valid_move?(start_pos, end_pos)
+          @board.move_piece(color, start_pos, end_pos)
+        else
+          raise "Invalid move"
+        end
+
       end
 
     rescue StandardError => error
       start_pos = nil
       end_pos = nil
-      @board[@display.selection_1].toggle_selected
-      @board[@display.selection_2].toggle_selected
+
+      @display.reset_selected
       @display.selection_1, @display.selection_2 = nil, nil
       @board.messages[:error] = error
       retry
     end
 
-    @board[@display.selection_2].toggle_selected
+    @display.reset_selected
     @display.selection_1, @display.selection_2 = nil, nil
   end
 

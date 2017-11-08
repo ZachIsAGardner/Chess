@@ -33,8 +33,8 @@ end
 
 board = Board.new
 display = Display.new(board)
-player_1 = HumanPlayer.new("White", board, display, :white)
-player_2 = HumanPlayer.new("Black", board, display, :black)
+player_1 = HumanPlayer.new("Bowser", board, display, :white)
+player_2 = HumanPlayer.new("Ganondorf", board, display, :black)
 
 game = Game.new(board, display, player_1, player_2)
 game.play

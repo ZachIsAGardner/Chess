@@ -24,6 +24,17 @@ attr_reader :cursor
     @selection_2 = nil
   end
 
+  def reset_selected
+    @board.grid.each_with_index do |row, i|
+      row.each_with_index do |col, j|
+        pos = [i, j]
+        if @board[pos].selected
+          @board[pos].toggle_selected
+        end
+      end
+    end
+  end
+
   def render
     system "clear"
     # debug_info
