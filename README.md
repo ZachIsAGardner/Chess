@@ -1,6 +1,6 @@
 # Chess
 
-Chess is an app coded in ruby that can played in the terminal.
+Chess is an app coded in ruby that can be played in the terminal.
 
 Instructions
 ===
