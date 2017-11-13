@@ -17,7 +17,6 @@ module SlidingPiece
   end
 
   def horizontal_dirs()
-    #hold up, left, right, down moves
     [[-1,0],
     [1,0],
     [0,1],
@@ -49,10 +48,5 @@ module SlidingPiece
   def increment(pos, dx, dy)
     [pos[0] + dx, pos[1] + dy]
   end
-
-  def get_moves
-
-  end
-
 
 end

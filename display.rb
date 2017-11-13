@@ -65,20 +65,6 @@ attr_reader :cursor
     puts "\n"
   end
 
-  # def test_render
-  #   p "Display debug info? y/n"
-  #   bool = gets.chomp.downcase
-  #
-  #   while true
-  #
-  #     system 'clear'
-  #
-  #     render
-  #     debug_info if bool == "y"
-  #     @cursor.get_input
-  #   end
-  # end
-
   def debug_info
     if @selection_1
       puts "\n"

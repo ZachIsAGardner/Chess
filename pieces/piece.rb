@@ -1,5 +1,4 @@
 class Piece
-
   attr_accessor :pos, :selected, :board
   attr_reader :color
 
@@ -32,12 +31,10 @@ class Piece
 
   def valid_moves
     moves.reject{|move| move_into_check?(move)}
-    # moves
   end
 
   def move_into_check?(end_pos)
     start_pos = self.pos
-    # duped_board = @board.dd_board
 
     @defeated_piece = @board.move_piece(self.color, self.pos, end_pos)
 
@@ -63,6 +60,4 @@ class Piece
     end
     true
   end
-
-
 end

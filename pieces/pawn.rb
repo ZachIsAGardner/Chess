@@ -49,7 +49,6 @@ class Pawn < Piece
     attack_positions << [pos[0] + forward_dir[0], pos[1] + 1]
 
     attack_positions.select {|a_pos| @board[a_pos] != nil && @board[a_pos].class != NullPiece && @board[a_pos].color != self.color}
-    # attack_positions.select {|a_pos| p @board[a_pos].class}
   end
 
 end

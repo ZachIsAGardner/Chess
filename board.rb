@@ -5,16 +5,13 @@ class Board
 
   def self.default_board
     [['Rook','Knight','Bishop', 'King', 'Queen', 'Bishop', 'Knight', 'Rook'],
-    # [[nil, nil, nil, nil, nil, nil, nil, nil],
     ['Pawn','Pawn','Pawn','Pawn', 'Pawn','Pawn','Pawn','Pawn'],
     [nil, nil, nil, nil, nil, nil, nil, nil],
     [nil, nil, nil, nil, nil, nil, nil, nil],
     [nil, nil, nil, nil, nil, nil, nil, nil],
     [nil, nil, nil, nil, nil, nil, nil, nil],
     ['Pawn','Pawn','Pawn','Pawn','Pawn','Pawn','Pawn','Pawn'],
-    # [nil, nil, nil, nil, nil, nil, nil, nil],
     ['Rook','Knight','Bishop', 'King', 'Queen', 'Bishop', 'Knight', 'Rook']]
-
   end
 
   attr_accessor :grid, :messages
