@@ -99,20 +99,19 @@ class Board
      new_array
   end
 
-  def pieces
+  def pieces(color)
     result = []
     grid.each_with_index do |row, i|
       row.each_with_index do |col, j|
-        result.push
+        pos = [i, j]
+        result.push(self[pos]) if self[pos].color == color
       end
     end
+    return result
   end
 
   def checkmate(color)
     @messages[:check] = ""
-    # return false unless in_check?(color);
-    #go through every position, check if color equals our color, check if it has any valid moves.
-    #If any pieces have valid moves then we are not in checkmate
 
     grid.each_with_index do |row, i|
       row.each_with_index do |col, j|
@@ -144,12 +143,12 @@ class Board
     if self[start_pos].moves.include?(end_pos)
       piece = self[start_pos]
       end_piece = self[end_pos]
-      # self[start_pos], self[end_pos] = NullPiece.new, self[start_pos]
+
       self[end_pos] = piece
       self[start_pos] = NullPiece.new
       piece.pos = end_pos
       @messages[:error] = ""
-      # self.grid.each { |el| print (el[0].class != NullPiece) ? "\n #{el[0].pos}" : "\n no piece" }
+
       return end_piece
     else
       raise "Piece cannot move there"

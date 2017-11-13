@@ -1,6 +1,7 @@
 require_relative 'board'
 require_relative 'display'
 require_relative 'human_player'
+require_relative 'computer_player'
 
 class Game
 
@@ -33,8 +34,16 @@ end
 
 board = Board.new
 display = Display.new(board)
-player_1 = HumanPlayer.new("Bowser", board, display, :white)
-player_2 = HumanPlayer.new("Ganondorf", board, display, :black)
+
+puts "Player one is a human player? (y/n)"
+input = gets.chomp
+player_1 = (input == "y") ? HumanPlayer.new("Bowser", board, display, :white)
+: ComputerPlayer.new("Bowser", board, display, :white)
+
+puts "Player two is a human player? (y/n)"
+input = gets.chomp
+player_2 = (input == "y") ? HumanPlayer.new("Ganondorf", board, display, :black)
+: ComputerPlayer.new("Ganondorf", board, display, :black)
 
 game = Game.new(board, display, player_1, player_2)
 game.play

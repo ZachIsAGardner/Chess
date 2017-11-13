@@ -1,17 +1,9 @@
 require_relative 'display'
 require_relative 'board'
+require_relative 'player'
 require 'byebug'
 
-class HumanPlayer
-
-  attr_reader :display, :color, :name
-
-  def initialize(name, board, display, color)
-    @name = name
-    @board = board
-    @display = display
-    @color = color
-  end
+class HumanPlayer < Player
 
   def make_move
     begin
@@ -56,6 +48,5 @@ class HumanPlayer
     @display.reset_selected
     @display.selection_1, @display.selection_2 = nil, nil
   end
-
 
 end
