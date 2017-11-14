@@ -1,5 +1,4 @@
 require_relative 'pieces/pieces'
-require 'byebug'
 
 class Board
 

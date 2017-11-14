@@ -1,7 +1,6 @@
 require_relative 'display'
 require_relative 'board'
 require_relative 'player'
-require 'byebug'
 
 class HumanPlayer < Player
 
